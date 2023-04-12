@@ -5,6 +5,8 @@ import { Btn } from "../common/Btn";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
+import {SaveModal} from "../common/SaveModal";
+import Spinner from "react-bootstrap/Spinner";
 
 export const VendorForm = () => {
   const [loading, setLoading] = useState(false);
@@ -44,57 +46,37 @@ export const VendorForm = () => {
     }));
   };
   if (loading) {
-    return <h2>Trwa dodawanie ogłoszenia...</h2>;
+    return
+        <Spinner/>;
   }
   if (id) {
     return (
-      <h2>
-        Twoje ogłoszenie "{form.name}" zostało poprawnie dodane do servisu pod
-        ID: {id}.{" "}
-      </h2>
+        <SaveModal />
+      // <h2>
+      //   Twoje ogłoszenie "{form.name}" zostało poprawnie dodane do servisu pod
+      //   ID: {id}.{" "}
+      // </h2>
     );
   }
 
   return (
-    <Container fluid>
-      <Form>
-        <Form.Group className="mb-3 mt-10 " controlId="formBasicEmail">
-          <Form.Label>Email address</Form.Label>
-          <Form.Control type="email" placeholder="Enter email" />
-          <Form.Text className="text-muted">
-            We'll never share your email with anyone else.
-          </Form.Text>
-        </Form.Group>
+    <form action="" className="add-form" onSubmit={saveVendor}>
+      <h1>Create new Vendor</h1>
+      <p>
+        <label>
+          Name: <br />
+          <input
+            type="text"
+            name="name"
+            required
+            maxLength={60}
+            value={form.name}
+            onChange={(e) => updateForm("name", e.target.value)}
+          />
+        </label>
+      </p>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
-      </Form>
-    </Container>
-    // <form action="" className="add-form" onSubmit={saveVendor}>
-    //   <h1>Create new Vendor</h1>
-    //   <p>
-    //     <label>
-    //       Name: <br />
-    //       <input
-    //         type="text"
-    //         name="name"
-    //         required
-    //         maxLength={60}
-    //         value={form.name}
-    //         onChange={(e) => updateForm("name", e.target.value)}
-    //       />
-    //     </label>
-    //   </p>
-    //
-    //   <Btn text="Save" />
-    // </form>
+      <Btn text="Save" />
+    </form>
   );
 };
