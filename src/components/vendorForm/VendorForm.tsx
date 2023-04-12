@@ -7,6 +7,7 @@ import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
 import {SaveModal} from "../common/SaveModal";
 import Spinner from "react-bootstrap/Spinner";
+import {SpinnerOne} from "../common/Spiner";
 
 export const VendorForm = () => {
   const [loading, setLoading] = useState(false);
@@ -46,8 +47,11 @@ export const VendorForm = () => {
     }));
   };
   if (loading) {
-    return
-        <Spinner/>;
+    return (
+        <>
+          <SpinnerOne />
+        </>
+    );
   }
   if (id) {
     return (

@@ -3,6 +3,7 @@ import "./WasteTypeForm.css";
 import { apiUrl } from "../../config/api";
 import { Btn } from "../common/Btn";
 import {SaveModal} from "../common/SaveModal";
+import {SpinnerOne} from "../common/Spiner";
 
 export const WasteTypeForm = () => {
   const [loading, setLoading] = useState(false);
@@ -43,7 +44,11 @@ export const WasteTypeForm = () => {
     }));
   };
   if (loading) {
-    return <h2>Trwa dodawanie ogłoszenia...</h2>;
+    return (
+        <>
+          <SpinnerOne />
+        </>
+    );
   }
   if (id) {
     return (
