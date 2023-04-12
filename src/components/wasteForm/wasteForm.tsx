@@ -96,11 +96,12 @@ export const WasteForm = () => {
         <label>
           Waste Type: <br />
           <select
-            className="form-select form-select-sm"
-            aria-label=".form-select-sm example"
-            required
+            onChange={(e) => {
+              const vendorId = e.target.value;
+            }}
+            required={true}
           >
-            <option selected>Select...</option>
+            <option aria-required>Select...</option>
             {types
               ? types.map((type) => {
                   return (
