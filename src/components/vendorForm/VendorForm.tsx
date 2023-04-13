@@ -22,7 +22,7 @@ export const VendorForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${apiUrl}/app/vendor`, {
+      const res = await fetch(`${apiUrl}/api/vendor`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
