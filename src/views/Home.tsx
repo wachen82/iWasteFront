@@ -45,8 +45,7 @@ export const Home = () => {
             </Carousel.Caption>
           </Carousel.Item>
         </Carousel>
-      </Container>{" "}
-      );
+      </Container>
     </>
   );
 };
