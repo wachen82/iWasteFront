@@ -19,7 +19,7 @@ export const WasteTypeForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${apiUrl}/app/waste-type`, {
+      const res = await fetch(`${apiUrl}/api/waste-type`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

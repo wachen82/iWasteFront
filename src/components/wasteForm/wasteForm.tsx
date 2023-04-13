@@ -28,13 +28,13 @@ export const WasteForm = () => {
     wasteTypeId: "",
   });
   useEffect(() => {
-    axios.get(`${apiUrl}/app/waste-type`).then((response) => {
+    axios.get(`${apiUrl}/api/waste-type`).then((response) => {
       setTypes(response.data);
     });
   }, []);
 
   useEffect(() => {
-    axios.get(`${apiUrl}/app/vendor`).then((response) => {
+    axios.get(`${apiUrl}/api/vendor`).then((response) => {
       setVendor(response.data);
     });
   }, []);
@@ -45,7 +45,7 @@ export const WasteForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${apiUrl}/app/waste`, {
+      const res = await fetch(`${apiUrl}/api/waste`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
