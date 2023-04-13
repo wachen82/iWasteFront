@@ -5,9 +5,9 @@ import { Btn } from "../common/Btn";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Container from "react-bootstrap/Container";
-import {SaveModal} from "../common/SaveModal";
+import { SaveModal } from "../common/SaveModal";
 import Spinner from "react-bootstrap/Spinner";
-import {SpinnerOne} from "../common/Spiner";
+import { SpinnerOne } from "../common/Spiner";
 
 export const VendorForm = () => {
   const [loading, setLoading] = useState(false);
@@ -22,7 +22,7 @@ export const VendorForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${apiUrl}/vendor`, {
+      const res = await fetch(`${apiUrl}/app/vendor`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -48,14 +48,14 @@ export const VendorForm = () => {
   };
   if (loading) {
     return (
-        <>
-          <SpinnerOne />
-        </>
+      <>
+        <SpinnerOne />
+      </>
     );
   }
   if (id) {
     return (
-        <SaveModal />
+      <SaveModal />
       // <h2>
       //   Twoje ogłoszenie "{form.name}" zostało poprawnie dodane do servisu pod
       //   ID: {id}.{" "}

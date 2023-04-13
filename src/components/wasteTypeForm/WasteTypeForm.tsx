@@ -2,8 +2,8 @@ import React, { SyntheticEvent, useState } from "react";
 import "./WasteTypeForm.css";
 import { apiUrl } from "../../config/api";
 import { Btn } from "../common/Btn";
-import {SaveModal} from "../common/SaveModal";
-import {SpinnerOne} from "../common/Spiner";
+import { SaveModal } from "../common/SaveModal";
+import { SpinnerOne } from "../common/Spiner";
 
 export const WasteTypeForm = () => {
   const [loading, setLoading] = useState(false);
@@ -19,7 +19,7 @@ export const WasteTypeForm = () => {
     setLoading(true);
 
     try {
-      const res = await fetch(`${apiUrl}/waste-type`, {
+      const res = await fetch(`${apiUrl}/app/waste-type`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -45,14 +45,14 @@ export const WasteTypeForm = () => {
   };
   if (loading) {
     return (
-        <>
-          <SpinnerOne />
-        </>
+      <>
+        <SpinnerOne />
+      </>
     );
   }
   if (id) {
     return (
-        <SaveModal />
+      <SaveModal />
       // <h2>
       //   Twoje ogłoszenie "{form.name}" zostało poprawnie dodane do servisu pod
       //   ID: {id}.{" "}
